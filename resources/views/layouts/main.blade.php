@@ -163,7 +163,7 @@
             </a>
         </div>
         <div class="menu-item">
-            <a href="{{ route('penyewa') }}" class="{{ Request::routeIs('penyewa') ? 'active' : '' }}">
+            <a href="{{ route('penyewa.index') }}" class="{{ Request::routeIs('penyewa') ? 'active' : '' }}">
                 <i data-feather="users"></i> <span>Penyewa</span>
             </a>
         </div>

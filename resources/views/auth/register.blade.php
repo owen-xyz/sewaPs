@@ -28,8 +28,13 @@
     </div>
 
     <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" id="password" name="password" class="form-control" required>
+        <label for="password" class="form-label">Password</label>
+                <div class="input-group">
+                    <input type="password" id="password" name="password" class="form-control" required>
+                    <span class="input-group-text bg-dark border-0">
+                        <i class="fa fa-eye icon-eye" id="togglePassword"></i>
+                    </span>
+                </div>
         @error('password')
         <div class="text-danger">{{ $message }}</div>
         @enderror

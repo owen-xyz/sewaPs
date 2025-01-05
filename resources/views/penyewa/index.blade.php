@@ -6,7 +6,7 @@
 <div class="d-flex justify-content-between align-items-center mb-3">
     <h5>Data Penyewaan</h5>
     <!-- Tombol Tambah Penyewa -->
-    <a href='#' class="btn btn-primary">
+    <a href='{{ route('penyewa.create') }}' class="btn btn-primary">
         <i class="fa fa-plus"></i> Tambah Penyewa
     </a>
 </div>

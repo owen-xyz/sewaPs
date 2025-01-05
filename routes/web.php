@@ -6,6 +6,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PenyewaController;
 
+// Redirect root URL ke login
+Route::get('/', function () {
+    return redirect()->route('login');
+});
+
 // Route untuk pengguna yang belum login
 Route::middleware('guest')->group(function () {
     // Halaman registrasi
@@ -25,17 +30,8 @@ Route::middleware('auth')->group(function () {
     // Logout
     Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 });
-// Route penyewa
-Route::middleware('auth')->group(function () {
-    // Halaman beranda setelah login
-    // Route::get('/penyewa', [PenyewaController::class, 'index'])->name('penyewa');
-    // Route::get('/create', [PenyewaController::class, 'create'])->name('create');
-    // Route::post('/', [PenyewaController::class, 'store'])->name('store');
-    
-    // Logout
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
-});
 
+// Route penyewa
 Route::middleware('auth')->prefix('penyewa')->name('penyewa.')->group(function () {
     // Halaman utama penyewa
     Route::get('/', [PenyewaController::class, 'index'])->name('index');
@@ -46,3 +42,4 @@ Route::middleware('auth')->prefix('penyewa')->name('penyewa.')->group(function (
     // Proses tambah penyewa
     Route::post('/', [PenyewaController::class, 'store'])->name('store');
 });
+
